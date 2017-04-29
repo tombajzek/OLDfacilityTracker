@@ -1,0 +1,236 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>videoPlayer</title>
+<script language="javascript">
+var ContentHeight = 60;
+var TimeToSlide = 450.0;
+
+var openAccordion = '';
+
+function runAccordion(index)
+{
+  var nID = "Accordion" + index + "Content";
+  if(openAccordion == nID)
+    nID = '';
+  setTimeout("animate(" 
+      + new Date().getTime() + "," + TimeToSlide + ",'" 
+      + openAccordion + "','" + nID + "')", 33);
+  
+  openAccordion = nID;
+}
+function animate(lastTick, timeLeft, closingId, openingId)
+{  
+  var curTick = new Date().getTime();
+  var elapsedTicks = curTick - lastTick;
+  
+  var opening = (openingId == '') ? 
+      null : document.getElementById(openingId);
+  var closing = (closingId == '') ? 
+      null : document.getElementById(closingId);
+ 
+  if(timeLeft <= elapsedTicks)
+  {
+    if(opening != null)
+      opening.style.height = ContentHeight + 'px';
+    
+    if(closing != null)
+    {
+      closing.style.display = 'none';
+      closing.style.height = '0px';
+    }
+    return;
+  }
+ 
+  timeLeft -= elapsedTicks;
+  var newClosedHeight = 
+      Math.round((timeLeft/TimeToSlide) * ContentHeight);
+
+  if(opening != null)
+  {
+    if(opening.style.display != 'block')
+      opening.style.display = 'block';
+    opening.style.height = 
+        (ContentHeight - newClosedHeight) + 'px';
+  }
+  
+  if(closing != null)
+    closing.style.height = newClosedHeight + 'px';
+
+  setTimeout("animate(" + curTick + "," + timeLeft + ",'" 
+      + closingId + "','" + openingId + "')", 33);
+}
+
+</script>
+
+<script language="JavaScript">
+    function LoadFlashMovie(theXML) {
+    /* Call a function registered as callPlayBall in the SWF named myMovie. */
+    getMovieName("videoPlayer").callPlayMovie(theXML); 
+	
+    }
+    /* This utility function resolves the string movieName to a Flash object reference based on browser type. */
+    function getMovieName(movieName) {
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+    return window[movieName]
+    }
+    else {
+    return document[movieName]
+    }
+    }
+</script>
+
+<link href="../A.css" rel="stylesheet" media="screen" />
+
+
+<style type="text/css">
+<!--
+.AccordionTitle, .AccordionContent, .AccordionContainer
+{
+  position:relative;
+  width:250px;
+}
+
+.AccordionTitle
+{
+  height:auto;
+  overflow:hidden;
+  cursor:pointer;
+  /*font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:10pt;
+  vertical-align:middle;
+  text-align:left;
+  color:#666666;
+  padding:10px 3px;
+  background-repeat:repeat-x;*/
+  display:table-cell;
+  /*background-color:#f7f7f7;
+  background-image:url('title_repeater.jpg');*/
+  -moz-user-select:none;
+}
+.AccordionButton
+{
+  height:20px;
+  overflow:hidden;
+  cursor:pointer;
+  font-family:Arial;
+  font-size:8pt;
+  font-weight:italic;
+  vertical-align:middle;
+  text-align:center;
+  background-repeat:repeat-x;
+  display:table-cell;
+  -moz-user-select:none;
+}
+
+
+.AccordionContent
+{
+  height:0px;
+  overflow:auto;
+  display:none;
+  style="margin:0;
+  padding:0;
+}
+
+.AccordionContainer
+{
+  border: none;
+}
+-->
+</style>
+<script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+</head>
+
+
+
+
+<body>
+
+
+<div class="cmubanner">
+<a href="http://www.cmu.edu/" target="_parent"><img src="../images-new/CMUwordmark-red.gif" alt="Carnegie Mellon University" name="CMUwordmark" id="CMUwordmark" longdesc="http://www.cmu.edu/" /></a></div>
+<!-- BEGIN MENU 1 POST COURSE MATERIALS -->
+ 
+<div id="AccordionContainer" class="AccordionContainer">
+
+  <div onClick="runAccordion(1)">
+    <div class="AccordionTitle" onselectstart="return false">
+      <h1>Filter</h1>
+      </div>
+  </div>
+  <div id="Accordion1Content" class="AccordionContent">
+  
+
+    <div class="AccordionButton" id="peer">Peer Assessment</div>
+    
+    <ul>
+  <li><a href="../how-to/add-content.shtml">Add Content</a></li>
+  <li><a href="../how-to/archive/index.shtml">Import Content</a></li>
+  </ul>
+    </div>
+    
+    
+    
+  
+  </div> <!--close AccordionContent -->
+
+
+
+<!-- END MENU 1 POST COURSE MATERIALS -->  
+
+
+<!-- BEGIN MENU 2 COMMUNICATE WITH STUDENTS -->  
+
+  <div onClick="runAccordion(2);">
+   <div class="AccordionTitle" onselectstart="return false;">
+      	<h1><img src="../images-new/ICONS/icon-comm.gif" alt="Communicate with Students" width="36" height="34" />Communicate with Students</h1>
+   </div>
+ </div>
+ 
+ <div id="Accordion2Content" class="AccordionContent">
+   <ul>
+   <!-- content 1 ANNOUNCEMENTS -->
+   <li><a href="../how-to/add-content.shtml">Posting Announcements</a></li>
+   <!-- content 2 EMAIL -->
+	<li><a href="../how-to/add-content.shtml">Sending Email</a></li>
+   <!-- content 3 FEEDBACK -->
+	<li><a href="../how-to/assessments.shtml">Providing Feedback</a></li>
+    </ul>
+ </div> <!--close AccordionContent -->
+
+
+  
+<!-- END MENU 2 COMMUNICATE WITH STUDENTS --> 
+  
+  
+
+
+
+
+<div class="maincontentVideo">
+  <!--url's used in the movie-->
+  <!--text used in the movie-->
+  <!-- saved from url=(0013)about:internet -->
+  <script language="javascript">
+	if (AC_FL_RunContent == 0) {
+		alert("This page requires AC_RunActiveContent.js.");
+	} else {
+		AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0','width','640','height','600','id','videoPlayer','align','middle','name','videoPlayer','src','videoPlayerJS','quality','high','bgcolor','#f7f7f7','allowscriptaccess','always','allowfullscreen','false','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','videoPlayerJS' ); //end AC code
+	}
+  </script>
+  <noscript>
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" name="videoPlayer" width="640" height="600" align="middle" id="videoPlayer">
+      <param name="allowScriptAccess" value="always" />
+      <param name="allowFullScreen" value="false" />
+      <param name="movie" value="videoPlayerJS.swf" />
+      <param name="quality" value="high" />
+      <param name="bgcolor" value="#f7f7f7" />	
+      <embed src="videoPlayerJS.swf" quality="high" bgcolor="#f7f7f7" width="640" height="600" name="videoPlayer" align="middle" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />    
+  </object>
+  </noscript>
+</div>
+</div></div>
+
+</body>
+</html>

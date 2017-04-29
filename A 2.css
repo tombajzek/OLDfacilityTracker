@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+.AccordionTitle, .AccordionContent, .AccordionContainer
+{
+  position:relative;
+  width:800px;
+}
+
+.AccordionTitle
+{
+	height:auto;
+	overflow:hidden;
+	cursor:pointer;
+	text-align:left;
+	/*font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:10pt;
+  vertical-align:middle;
+  
+  color:#666666;
+  padding:10px 3px;
+  background-repeat:repeat-x;*/
+  display:table-cell;
+	/*-color:#f7f7f7;
+  background-image:url('title_repeater.jpg');*/
+  -moz-user-select:none;
+	margin: 2px;
+	padding: 1px;
+	border: 1px dashed #DDD;
+}
+.AccordionButton
+{
+  height:0px;
+  overflow:hidden;
+  cursor:pointer;
+  font-family:Arial;
+  font-size:8pt;
+  font-weight:italic;
+  vertical-align:middle;
+  text-align:center;
+  background-repeat:repeat-x;
+  display:table-cell;
+  -moz-user-select:none;
+}
+
+
+.AccordionContent
+{
+  height:190px;
+  overflow:auto;
+  display:none;
+  style="margin:0;
+  line-height:12 px;
+  padding:0;
+}
+
+.AccordionContainer
+{
+  border: none;
+}
+
+.Filter
+{
+ vertical-align:middle;
+ text-align:center;
+}

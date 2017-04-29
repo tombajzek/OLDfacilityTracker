@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* CSS Document */
+body { 
+  color : #000000; 
+  background : #ffffff; 
+  font-family : "Times New Roman", Times, serif;
+  font-size : 10pt; 
+}
+a { 
+  text-decoration : underline; 
+  color : #0000ff; 
+}
+#navigation, #advertising, #other { 
+  display : none; 
+}
+.asccnoprint {
+display : none;
+}
+
